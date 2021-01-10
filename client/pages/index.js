@@ -16,7 +16,7 @@ const LandingPage = ({ currentUser, tickets }) => {
   });
   return (
     <div>
-      <h3 style={{ margin: '10px' }}>Tickets</h3>
+      <h2 style={{ margin: '10px' }}>Tickets</h2>
       <table className='table'>
         <thead>
           <tr>
