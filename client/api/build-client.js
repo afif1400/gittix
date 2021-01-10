@@ -4,7 +4,7 @@ export default ({ req }) => {
   if (typeof window === 'undefined') {
     //when we are on the server
     return axios.create({
-      baseURL: 'http://www.gittix-micro.xyz/',
+      baseURL: 'http://www.gittix-micro.xyz',
       headers: req.headers,
     });
   } else {
