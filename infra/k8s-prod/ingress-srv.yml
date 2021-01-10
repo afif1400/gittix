@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
   rules:
-    - host: gittix-micro.com
+    - host: www.gittix-micro.xyz
       http:
         paths:
           - path: /api/payments/?(.*)
