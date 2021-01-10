@@ -1,25 +1,25 @@
-name: auth-deploy
+name: tickets-deploy
 
 on:
   push:
     branches:
       - master
     paths:
-      - 'auth/**'
+      - 'tickets/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd auth && docker build -t afif1400/auth .
+      - run: cd tickets && docker build -t afif1400/tickets .
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{  secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{  secrets.DOCKER_PASSWORD }}
-      - run: docker push afif1400/auth
+      - run: docker push afif1400/tickets
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save gittix-micro
-      - run: kubectl rollout restart deployment auth-depl
+      - run: kubectl rollout restart deployment tickets-depl
