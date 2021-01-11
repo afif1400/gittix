@@ -73,7 +73,7 @@ ticketSchema.methods.isReserved = async function () {
         OrderStatus.Complete,
       ],
     },
-  });
+  }).lean();
 
   return !!existingOrder;
 };
