@@ -4,7 +4,7 @@ This is a ticket booking application where people can sell and buy tickets
 
 ## Technologies used
 
-Nodejs
+Nodejs\
 Express.js
 Mongoose
 Mongodb
