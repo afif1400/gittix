@@ -55,7 +55,7 @@ router.post(
       userId: req.currentUser!.id,
       status: OrderStatus.Created,
       expiresAt: experiation,
-      ticket: ticket,
+      ticket,
     });
 
     await order.save();
