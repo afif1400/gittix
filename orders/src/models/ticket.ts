@@ -62,7 +62,6 @@ ticketSchema.statics.build = (attrs: TicketAttrs) => {
   });
 };
 
-//@ts-ignore
 ticketSchema.methods.isReserved = async function () {
   // this === the ticket document that we just called 'isReserved' on
   const existingOrder = await Order.findOne({
@@ -70,7 +69,7 @@ ticketSchema.methods.isReserved = async function () {
     status: {
       $in: [
         OrderStatus.Created,
-        OrderStatus.AwaitingPayment,
+        OrderStatus.AwaitedPayment,
         OrderStatus.Complete,
       ],
     },
