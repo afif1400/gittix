@@ -12,7 +12,7 @@ export interface TicketDoc extends mongoose.Document {
   title: string;
   price: number;
   version: number;
-  isReserved(): Promise<boolean>;
+  isReserved(ticket: any): Promise<boolean>;
 }
 
 interface TicketModel extends mongoose.Model<TicketDoc> {
@@ -62,10 +62,19 @@ ticketSchema.statics.build = (attrs: TicketAttrs) => {
   });
 };
 
-ticketSchema.methods.isReserved = async function () {
+
+ticketSchema.statics.findByEvent = (event: { id: string; version: number }) => {
+  return Ticket.findOne({
+    _id: event.id,
+    version: event.version - 1,
+  });
+};
+
+ticketSchema.methods.isReserved = async function (ticket: any) {
+
   // this === the ticket document that we just called 'isReserved' on
   const existingOrder = await Order.findOne({
-    ticket: this,
+    ticket: ticket,
     status: {
       $in: [
         OrderStatus.Created,
