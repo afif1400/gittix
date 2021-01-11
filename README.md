@@ -4,21 +4,21 @@ This is a ticket booking application where people can sell and buy tickets
 
 ## Technologies used
 
-Nodejs\
-Express.js
-Mongoose
-Mongodb
-Redis
-Nextjs
-Nats-streaming
+<em>Nodejs\</em>
+<em>Express.js\</em>
+<em>Mongoose</em>
+<em>Mongodb</em>
+<em>Redis</em>
+<em>Nextjs</em>
+<em>Nats-streaming</em>
 
 ## Tools Used
 
-Docker
-Kubernetes
-Ingress-nginx
-Github actions
-Hosted on digital ocean cluster
+<em>Kubernetes</em>
+<em>Docker</em>
+<em>Ingress-nginx</em>
+<em>Github actions</em>
+<em>Hosted on digital ocean cluster</em>
 
 ## domain
 
