@@ -13,6 +13,7 @@
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "next": "^9.5.3",
+    "node-fetch": "^2.6.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-stripe-checkout": "^2.6.3"

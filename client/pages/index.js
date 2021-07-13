@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import fetch from 'node-fetch'
 
 const LandingPage = ({ currentUser, tickets }) => {
   const ticketList = tickets.map((ticket) => {
@@ -31,9 +32,16 @@ const LandingPage = ({ currentUser, tickets }) => {
   );
 };
 
-LandingPage.getInitialProps = async (context, client, currentUser) => {
-  const { data } = await client.get('/api/tickets');
-  return { tickets: data };
-};
+// LandingPage.getInitialProps = async (context, client, currentUser) => {
+//   const { data } = await client.get('/api/tickets');
+//   console.log(data)
+//   return { tickets: [] };
+// };
+
+export const getServerSideProps = async (context, res) => {
+  const response = await fetch('https://geticket.com/api/tickets')
+  const data = await response.json()
+  console.log(data)
+}
 
 export default LandingPage;
